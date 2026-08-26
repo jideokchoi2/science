@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-void text-chalk font-body antialiased;
+    /* 캔버스에 그림을 그릴 때 화면이 스크롤/확대되지 않도록 */
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 키보드 사용자에게만 포커스 링을 보여 줍니다. */
+  :focus-visible {
+    outline: 3px solid theme('colors.beam');
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* 관측 기록판 느낌의 공용 패널 */
+  .panel {
+    @apply rounded-2xl border border-edge/70 bg-panel/60 backdrop-blur-sm;
+  }
+
+  /* 숫자를 표로 읽기 좋게 (자릿수 흔들림 방지) */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* 고대비 모드: 배경을 완전한 검정으로, 테두리를 굵고 밝게 */
+.hc body,
+body.hc {
+  background: #000;
+}
+
+body.hc .panel {
+  @apply border-2 border-chalk bg-black;
+}
+
+body.hc .text-dust {
+  @apply text-chalk;
+}
+
+/* 사용자가 '동작 줄이기'를 켜 두었다면 애니메이션을 최소화합니다. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
