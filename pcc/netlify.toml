@@ -1,0 +1,14 @@
+[build]
+  # 저장소 루트가 아니라 pcc/ 폴더 안에 앱이 있으므로 base를 지정합니다.
+  base = "pcc"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# React SPA이므로 어떤 경로로 들어와도 index.html을 돌려줍니다.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
