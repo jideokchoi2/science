@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useState } from 'react';
 import GameScreen from './components/GameScreen';
 import InstructionModal from './components/InstructionModal';
+import PlanetSizeChart from './components/PlanetSizeChart';
 import ResultScreen from './components/ResultScreen';
 import StarField from './components/StarField';
 import StartScreen from './components/StartScreen';
@@ -44,6 +45,7 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>('start');
   const [previousScreen, setPreviousScreen] = useState<Screen>('start');
   const [showHowTo, setShowHowTo] = useState(false);
+  const [showSizeChart, setShowSizeChart] = useState(false);
 
   const [index, setIndex] = useState(0);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
@@ -124,6 +126,7 @@ export default function App() {
           highContrast={settings.highContrast}
           onStart={startGame}
           onHowTo={() => setShowHowTo(true)}
+          onShowSizes={() => setShowSizeChart(true)}
           onTeacher={openTeacher}
           onCompete={() => setScreen(mp ? 'roomLobby' : 'roomEntry')}
           onToggleSound={() => toggle('sound')}
@@ -218,6 +221,7 @@ export default function App() {
       )}
 
       {showHowTo && <InstructionModal onClose={() => setShowHowTo(false)} />}
+      {showSizeChart && <PlanetSizeChart onClose={() => setShowSizeChart(false)} />}
     </div>
   );
 }

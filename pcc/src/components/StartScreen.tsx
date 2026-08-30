@@ -7,6 +7,7 @@ interface Props {
   highContrast: boolean;
   onStart: () => void;
   onHowTo: () => void;
+  onShowSizes: () => void;
   onTeacher: () => void;
   onCompete: () => void;
   onToggleSound: () => void;
@@ -19,6 +20,7 @@ export default function StartScreen({
   highContrast,
   onStart,
   onHowTo,
+  onShowSizes,
   onTeacher,
   onCompete,
   onToggleSound,
@@ -61,6 +63,9 @@ export default function StartScreen({
         </Button>
         <Button variant="ghost" onClick={onHowTo}>
           게임 방법
+        </Button>
+        <Button variant="ghost" onClick={onShowSizes}>
+          🪐 행성 크기 비교
         </Button>
       </div>
 
