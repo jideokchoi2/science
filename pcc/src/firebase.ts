@@ -8,6 +8,7 @@ import { getFirestore } from 'firebase/firestore';
 const firebaseConfig = {
   apiKey: 'AIzaSyDiWdmPDEPEBtFwD3ePUrKDstzZA0I49O4',
   authDomain: 'planet-circle-challenge.firebaseapp.com',
+  databaseURL: 'https://planet-circle-challenge-default-rtdb.asia-southeast1.firebasedatabase.app',
   projectId: 'planet-circle-challenge',
   storageBucket: 'planet-circle-challenge.firebasestorage.app',
   messagingSenderId: '884833535586',
