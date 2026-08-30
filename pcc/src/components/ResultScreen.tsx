@@ -3,6 +3,7 @@ import { getGrade } from '../utils/scoring';
 import type { Attempt, Badge } from '../types';
 import BadgeShelf from './BadgeShelf';
 import Button from './Button';
+import PlanetSizeCompare from './PlanetSizeCompare';
 
 interface Props {
   attempts: Attempt[];
@@ -53,6 +54,16 @@ export default function ResultScreen({
           </p>
         )}
       </header>
+
+      <section className="panel animate-driftUp p-4 sm:p-5">
+        <h2 className="font-display text-lg">한눈에 비교하기</h2>
+        <p className="mt-1 text-sm text-dust">
+          여덟 행성을 나란히 놓고, 내가 그린 원과 실제 크기가 얼마나 가까웠는지 확인해 보세요.
+        </p>
+        <div className="mt-3">
+          <PlanetSizeCompare attempts={attempts} />
+        </div>
+      </section>
 
       <section className="panel p-4 sm:p-5">
         <h2 className="font-display text-lg">행성별 기록</h2>
