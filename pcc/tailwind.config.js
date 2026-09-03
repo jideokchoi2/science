@@ -30,11 +30,17 @@ export default {
           '0%': { transform: 'translateY(8px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
+        sunRise: {
+          '0%': { transform: 'scale(0.4)', opacity: '0' },
+          '70%': { transform: 'scale(1.08)', opacity: '1' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
       },
       animation: {
         twinkle: 'twinkle 3s ease-in-out infinite',
         popIn: 'popIn 240ms ease-out both',
         driftUp: 'driftUp 320ms ease-out both',
+        sunRise: 'sunRise 560ms cubic-bezier(0.2,0.9,0.3,1.2) both',
       },
     },
   },

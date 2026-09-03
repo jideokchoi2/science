@@ -104,3 +104,25 @@ export function getPlanet(id: string): Planet {
   if (!found) throw new Error(`알 수 없는 행성 id: ${id}`);
   return found;
 }
+
+/** 태양은 게임 채점 대상(PlanetId)이 아니라 '행성 크기 비교' 화면 전용 표시 정보입니다. */
+export interface SunInfo {
+  id: 'sun';
+  name: string;
+  nameEn: string;
+  /** 지구 지름을 1.0으로 보았을 때의 태양 지름 (실제 약 109.2배) */
+  relativeDiameter: number;
+  colorLight: string;
+  colorDark: string;
+  fact: string;
+}
+
+export const SUN: SunInfo = {
+  id: 'sun',
+  name: '태양',
+  nameEn: 'Sun',
+  relativeDiameter: 109.2,
+  colorLight: '#FFE29A',
+  colorDark: '#FF7A18',
+  fact: '태양은 지구 지름의 약 109배! 지구를 100만 개 넘게 넣을 수 있을 만큼 어마어마하게 큰 별이에요.',
+};

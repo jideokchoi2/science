@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react';
 import Button from './Button';
-import PlanetSizeCompare from './PlanetSizeCompare';
+import PlanetSizeExplorer from './PlanetSizeExplorer';
 
 interface Props {
   onClose: () => void;
 }
 
 /**
- * "행성 크기 비교" 정답표를 여는 모달. 실제 그래프는 PlanetSizeCompare 가 그리며,
- * 이 컴포넌트는 다이얼로그 뼈대(포커스·Esc 닫기·배경)만 담당합니다.
+ * "행성 크기 비교" 정답표를 여는 모달. 실제 상호작용(탭으로 행성/태양 고르기)은
+ * PlanetSizeExplorer 가 담당하며, 이 컴포넌트는 다이얼로그 뼈대(포커스·Esc 닫기·배경)만 맡습니다.
  */
 export default function PlanetSizeChart({ onClose }: Props) {
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -35,11 +35,11 @@ export default function PlanetSizeChart({ onClose }: Props) {
             🪐 행성 크기 비교
           </h2>
           <p className="mt-1 text-sm text-dust">
-            지구(1.0배)를 기준으로 여덟 행성의 실제 상대적인 크기를 한눈에 볼 수 있어요.
+            아래 탭에서 행성이나 태양을 눌러 보세요. 지구(1.0배)를 기준으로 실제 크기 그대로 튀어나와요.
           </p>
         </div>
 
-        <PlanetSizeCompare />
+        <PlanetSizeExplorer />
 
         <div className="flex justify-end">
           <Button ref={closeRef} onClick={onClose}>
