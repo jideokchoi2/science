@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# React SPA이므로 어떤 경로로 들어와도 index.html을 돌려줍니다.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
